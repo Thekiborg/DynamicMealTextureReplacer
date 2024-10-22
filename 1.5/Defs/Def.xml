@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="MealCooked">
+        <defName>aaaaaaaaaa</defName>
+        <label>aaaaaaaaaa</label>
+        <description>A simple meal quickly cooked from one main ingredient.</description>
+        <graphicData>
+          <texPath>MealAtlas/MealAtlas</texPath>
+          <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+        </graphicData>
+        <statBases>
+          <MarketValue>15</MarketValue>
+          <WorkToMake>300</WorkToMake>
+          <Nutrition>0.9</Nutrition>
+        </statBases>
+        <ingestible>
+          <preferability>MealSimple</preferability>
+          <ingestEffect>EatVegetarian</ingestEffect>
+          <ingestSound>Meal_Eat</ingestSound>
+        </ingestible>
+        <comps>
+          <li>
+            <compClass>DynamicMealTextureReplacer.ThingComp_Gizmo</compClass>
+          </li>
+        </comps>
+        <modExtensions>
+          <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+            <widthPixels>432</widthPixels>
+            <heightPixels>432</heightPixels>
+            <dimensionsMapping>
+              <li>
+                <key>
+                  <li>RawRice</li>
+                </key>
+                <value>1</value>
+              </li>
+              <li>
+                <key>
+                  <li>RawPotatoes</li>
+                </key>
+                <value>2</value>
+              </li>
+              <li>
+                <key>
+                  <li>RawCorn</li>
+                </key>
+                <value>3</value>
+              </li>
+            </dimensionsMapping>
+          </li>
+        </modExtensions>
+    </ThingDef>
+
+    <!--
+    <li Class="ModExtension">
+      <texPath>Path/To/Meal/Atlas</texPath>
+      <atlasMapping>
+        <li>--> <!-- The index of this kvp is the row it will pertain to in the atlas, thanks JC--><!--
+          <key>
+            <ingredientsToMatch>
+              <li>Meat</li>
+              <li>NotMeat</li>
+            </ingredientsToMatch>
+          </key>
+          <value>
+            <labelOverrides>
+              <li>Meat balls</li>
+              <li>Unmeat balls</li>
+            </labelOverrides>
+            <descriptionOverrides>
+              <li>Meat balls deepfried covered in bread crumps</li>
+              <li>oh no...</li>
+            </descriptionOverrides>
+          </value>
+        </li>
+      </atlasMapping>
+    </li>
+  -->
+
+</Defs>
