@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Simple Meal -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MealSimple"]/graphicData/texPath</xpath>
+    <value>
+      <texPath>MealAtlas/MealAtlasCursed</texPath>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MealSimple"]/graphicData/graphicClass</xpath>
+    <value>
+      <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+    </value>
+  </Operation>
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MealSimple"]</xpath>
+    <value>
+      <modExtensions>
+        <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+          <widthPixels>432</widthPixels>
+          <heightPixels>432</heightPixels>
+          <dimensionsMapping>
+            <li>
+              <key>
+                <li>RawRice</li>
+              </key>
+              <value>1</value>
+            </li>
+            <li>
+              <key>
+                <li>RawPotatoes</li>
+              </key>
+              <value>2</value>
+            </li>
+            <li>
+              <key>
+                <li>RawCorn</li>
+              </key>
+              <value>3</value>
+            </li>
+          </dimensionsMapping>
+        </li>
+      </modExtensions>
+    </value>
+  </Operation>
+
+</Patch>

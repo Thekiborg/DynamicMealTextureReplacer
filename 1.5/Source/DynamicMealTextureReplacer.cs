@@ -21,13 +21,11 @@ namespace DynamicMealTextureReplacer
 					continue;
 				}
 
-				modExt.TextureVariants = MealAtlasSplitter.SplitAtlas(
+				MealAtlasSplitter.SplitAtlas(
 					[.. modExt.dimensionsMapping.Values],
 					thingDef.graphicData.Graphic.MatSingle,
-					thingDef);
-
-				Graphic_IngredientsVariant graphic = (Graphic_IngredientsVariant)thingDef.graphicData.Graphic;
-				graphic.parent = thingDef;
+					thingDef,
+					modExt);
 			}
 		}
 	}

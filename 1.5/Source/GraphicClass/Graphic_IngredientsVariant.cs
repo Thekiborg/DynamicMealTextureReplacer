@@ -2,17 +2,65 @@
 {
 	public class Graphic_IngredientsVariant : Graphic_Single
 	{
-		//public override Material MatSingle => MealAtlasWorker.extractedMealTextures[3] ?? base.MatSingle;
-		internal ThingDef parent;
+		private const int randomRangeMin = 0;
+		private readonly Dictionary<Thing, (ModExtension_DynamicMealTextureReplacer ModExtension, CompIngredients CompIngredients)> modExtensionCompCache = [];
 
 		public override void Print(SectionLayer layer, Thing thing, float extraRotation)
 		{
-			ThingComp_Gizmo gizmo = thing.TryGetComp<ThingComp_Gizmo>();
-			int CounterY = gizmo.CounterY;
-			int CounterX = gizmo.CounterX;
-			
-			Material mat = parent.GetModExtension<ModExtension_DynamicMealTextureReplacer>()?.TextureVariants[CounterY][CounterX];
-			Printer_Plane.PrintPlane(layer, thing.TrueCenter(), new Vector2(1f, 1f), mat, extraRotation);
+			if (thing is null) return;
+			CacheCompAndModExtension(thing);
+
+			int row = MealAtlasIngredientFilter.GetRow(modExtensionCompCache[thing].ModExtension, modExtensionCompCache[thing].CompIngredients);
+			int col = GetRandomTextureOnRow(thing, row, modExtensionCompCache[thing].ModExtension);
+
+			Printer_Plane.PrintPlane(layer,
+				thing.TrueCenter(),
+				new Vector2(1f, 1f),
+				MatSingleFor(thing),
+				extraRotation,
+				uvs: modExtensionCompCache[thing].ModExtension.UVCoordsForPrinting[row][col]);
+		}
+
+		public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
+		{
+			if (thing is null) return;
+
+			CacheCompAndModExtension(thing);
+
+			int row = MealAtlasIngredientFilter.GetRow(modExtensionCompCache[thing].ModExtension, modExtensionCompCache[thing].CompIngredients);
+			int col = GetRandomTextureOnRow(thing, row, modExtensionCompCache[thing].ModExtension);
+
+			Mesh mesh = modExtensionCompCache[thing].ModExtension.MeshesForDrawing[row][col];
+			Quaternion quat = QuatFromRot(rot);
+			if (extraRotation != 0f)
+			{
+				quat *= Quaternion.Euler(Vector3.up * extraRotation);
+			}
+			if (data != null && data.addTopAltitudeBias)
+			{
+				quat *= Quaternion.Euler(Vector3.left * 2f);
+			}
+			loc += DrawOffset(rot);
+			Material mat = MatSingleFor(thing);
+			DrawMeshInt(mesh, loc, quat, mat);
+			ShadowGraphic?.DrawWorker(loc, rot, thingDef, thing, extraRotation);
+		}
+
+		private static int GetRandomTextureOnRow(Thing thing, int row, ModExtension_DynamicMealTextureReplacer modExtension)
+		{
+			int randomRangeMax = modExtension.UVCoordsForPrinting[row].Length;
+			int seed = thing.thingIDNumber; //% modExtension.TextureVariants[row].Length;
+			return Rand.RangeSeeded(randomRangeMin, randomRangeMax, seed);
+		}
+
+		private void CacheCompAndModExtension(Thing thing)
+		{
+			if (!modExtensionCompCache.ContainsKey(thing))
+			{
+				var modExtension = thing?.def.GetModExtension<ModExtension_DynamicMealTextureReplacer>();
+				var compIngredients = thing.TryGetComp<CompIngredients>();
+				modExtensionCompCache.Add(thing, new(modExtension, compIngredients));
+			}
 		}
 	}
 }

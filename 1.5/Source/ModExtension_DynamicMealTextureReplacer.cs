@@ -3,7 +3,8 @@
 #pragma warning disable CA1051,CA1002
 	public class ModExtension_DynamicMealTextureReplacer : DefModExtension
 	{
-		internal Material[][] TextureVariants;
+		internal Vector2[][][] UVCoordsForPrinting;
+		internal Mesh[][] MeshesForDrawing;
 
 		public Dictionary<List<ThingDef>, int> dimensionsMapping;
 		public int maxCheckedIngredients = 1;
