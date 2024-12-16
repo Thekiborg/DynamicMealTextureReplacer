@@ -4,4 +4,3 @@
 // a specific target and scoped to a namespace, type, member, etc.
 
 using System.Diagnostics.CodeAnalysis;
-[assembly: SuppressMessage("Design", "CA1062:Validate arguments of public methods", Justification = "<Pending>", Scope = "member", Target = "~M:DynamicMealTextureReplacer.Graphic_IngredientsVariant.MatSingleFor(Verse.Thing)~UnityEngine.Material")]

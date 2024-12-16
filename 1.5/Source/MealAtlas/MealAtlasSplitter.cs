@@ -19,11 +19,19 @@ namespace DynamicMealTextureReplacer
 		static float YPadding => YSize / spaceBetweenTextures;
 
 
+		/// <summary>
+		/// Splits the atlas material into 2 jagged arrays.<br></br>
+		/// The first jagged array is made up of UVs, used by Print() on the GraphicClass.<br></br>
+		/// The second jagged array is made up of meshes, used by Draw() on the GraphicClass.<br></br>
+		/// Both store individual food items separated by rows. They're stored like this so each texture following certain ingredients are in the same row, making it easier to fetch what is going to end up getting drawn.
+		/// </summary>
+		/// <param name="dimensionsMapping">List inside the modExtension. Used to know the size of each row.</param>
+		/// <param name="thingDef">The thingdef the modExtension is on.</param>
+		/// <param name="modExtension">The modExtension itself, which is where the resulting arrays get stored at.</param>
 		public static void SplitAtlas(List<int> dimensionsMapping, ThingDef thingDef, ModExtension_DynamicMealTextureReplacer modExtension)
 		{
 			widthPixels = modExtension.widthPixels;
 			heightPixels = modExtension.heightPixels;
-			Vector2 mainTextureScale = new(XSize, YSize);
 
 			int totalRows = dimensionsMapping.Count;
 			// Makes the jaggedArray have as many arrays as rows are in the atlas
@@ -37,8 +45,8 @@ namespace DynamicMealTextureReplacer
 				// Sets the amount of textures per row from the last one in the list to the first one.
 				// Goes opposite to the loop to match the top most item in the XML list to the top most row in the texture/array
 
-				modExtension.UVCoordsForPrinting[rowNum] = new Vector2[texturesPerRow][];
-				modExtension.MeshesForDrawing[rowNum] = new Mesh[texturesPerRow];
+				modExtension.UVCoordsForPrinting[totalRows - 1 - rowNum] = new Vector2[texturesPerRow][];
+				modExtension.MeshesForDrawing[totalRows - 1 - rowNum] = new Mesh[texturesPerRow];
 
 				for (int colNum = 0; colNum < texturesPerRow; colNum++)
 				{
@@ -51,9 +59,14 @@ namespace DynamicMealTextureReplacer
 					};
 
 					Printer_Plane.GetUVs(singleTextureRect, out var uv1, out var uv2, out var uv3, out var uv4, false);
-					modExtension.UVCoordsForPrinting[rowNum][colNum] = [uv1, uv2, uv3, uv4];
 
-					PopulateMeshArray(colNum, rowNum, uv1, uv2, uv3, uv4, modExtension);
+					// Used in Print()
+					modExtension.UVCoordsForPrinting[totalRows - 1 - rowNum][colNum] = [uv1, uv2, uv3, uv4];
+
+					// Used in Draw()
+					Mesh singleTextureMesh = MeshMakerPlanes.NewPlaneMesh(1f);
+					singleTextureMesh.uv = [uv1, uv2, uv3, uv4];
+					modExtension.MeshesForDrawing[totalRows - 1 - rowNum][colNum] = singleTextureMesh;
 				}
 			}
 			
@@ -95,12 +108,6 @@ namespace DynamicMealTextureReplacer
 			*/
 		}
 
-		private static void PopulateMeshArray(int X, int Y, Vector2 uv1, Vector2 uv2, Vector2 uv3, Vector2 uv4, ModExtension_DynamicMealTextureReplacer modExtension)
-		{
-			Mesh singleTextureMesh = MeshMakerPlanes.NewPlaneMesh(1f);
-			singleTextureMesh.uv = [uv1, uv2, uv3, uv4];
-			modExtension.MeshesForDrawing[Y][X] = singleTextureMesh;
-		}
 
 		private static float CalculateXCoordinate(int X)
 		{
@@ -110,6 +117,7 @@ namespace DynamicMealTextureReplacer
 			// X * 2 + 1 calculates how many times the paddings needs to be added for the material to land in the texture box
 			// xPadding * ↑ gets the actual padding size to add
 		}
+
 
 		private static float CalculateYCoordinate(int Y)
 		{

@@ -9,11 +9,9 @@ namespace DynamicMealTextureReplacer
 			int atlasYIndex = 0;
 			List<ThingDef> ingredientsToCheck = compIngredients.ingredients.Take(modExtension.maxCheckedIngredients).ToList();
 
-			foreach (List<ThingDef> filterOnRow in modExtension.dimensionsMapping.Keys.Reverse())
+			foreach (List<ThingDef> filterOnRow in modExtension.dimensionsMapping.Keys)
 			{
-				// Goes opposite to the loop to match how the array is actually constructed;
-				// Without going opposite, the top most ingredient on the List will match with the bottom most row in the array.
-				// While going opposite, the top most ingredient matches the top most row in the array, matching the texture and the XML visually.
+				// The top most ingredient matches the top most row in the array, matching the atlas and the XML visually.
 
 				if (MatchesFilter(filterOnRow, ingredientsToCheck))
 				{
@@ -21,7 +19,7 @@ namespace DynamicMealTextureReplacer
 				}
 				atlasYIndex++;
 			}
-			Log.Warning($"Could not match the ingredient filter on {compIngredients.parent}, throwing.");
+			Log.Warning($"Could not match the ingredient filter on {compIngredients.parent}, returning fallback.");
 			return -1;
 		}
 
