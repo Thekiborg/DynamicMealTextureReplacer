@@ -21,24 +21,25 @@
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
           <widthPixels>432</widthPixels>
           <heightPixels>432</heightPixels>
+          <!--<AtlasTexPath>MealAtlas/MealAtlasCursed</AtlasTexPath>-->
           <dimensionsMapping>
             <li>
               <key>
                 <li>RawRice</li>
               </key>
-              <value>1</value>
+              <value>3</value>
             </li>
             <li>
               <key>
                 <li>RawPotatoes</li>
               </key>
-              <value>2</value>
+              <value>3</value>
             </li>
             <li>
               <key>
                 <li>RawCorn</li>
               </key>
-              <value>3</value>
+              <value>2</value>
             </li>
           </dimensionsMapping>
         </li>

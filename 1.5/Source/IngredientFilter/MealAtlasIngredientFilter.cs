@@ -22,7 +22,7 @@ namespace DynamicMealTextureReplacer
 				atlasYIndex++;
 			}
 			Log.Warning($"Could not match the ingredient filter on {compIngredients.parent}, throwing.");
-			return 0;
+			return -1;
 		}
 
 		private static bool MatchesFilter(List<ThingDef> ingredientFilter, List<ThingDef> ingredientsInMeal)

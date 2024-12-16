@@ -19,7 +19,7 @@ namespace DynamicMealTextureReplacer
 		static float YPadding => YSize / spaceBetweenTextures;
 
 
-		public static void SplitAtlas(List<int> dimensionsMapping, Material matSingleFromDef, ThingDef thingDef, ModExtension_DynamicMealTextureReplacer modExtension)
+		public static void SplitAtlas(List<int> dimensionsMapping, ThingDef thingDef, ModExtension_DynamicMealTextureReplacer modExtension)
 		{
 			widthPixels = modExtension.widthPixels;
 			heightPixels = modExtension.heightPixels;

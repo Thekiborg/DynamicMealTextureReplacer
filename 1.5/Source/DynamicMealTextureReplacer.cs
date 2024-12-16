@@ -23,7 +23,6 @@ namespace DynamicMealTextureReplacer
 
 				MealAtlasSplitter.SplitAtlas(
 					[.. modExt.dimensionsMapping.Values],
-					thingDef.graphicData.Graphic.MatSingle,
 					thingDef,
 					modExt);
 			}
