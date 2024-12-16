@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Replaces the meal's graphicClass -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MealLavish"]/graphicData</xpath>
+    <value>
+      <graphicData>
+        <!-- Uses the atlas to dynamically change the texture -->
+        <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+        <texPath>DMTR/MealAtlasCursed</texPath>
+        <attachments>
+          <li>
+            <!-- In the case it can't do that, it'll use the default graphic class-->
+            <texPath>Things/Item/Meal/Fine</texPath>
+            <graphicClass>Graphic_MealVariants</graphicClass>
+          </li>
+        </attachments>
+      </graphicData>
+    </value>
+  </Operation>
+
+  <!-- Atlas settings and mapping-->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MealLavish"]</xpath>
+    <value>
+      <uiIconPath>Things/Item/Meal/Lavish/Lavish_a</uiIconPath>
+      <modExtensions>
+        <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+          <widthPixels>432</widthPixels>
+          <heightPixels>432</heightPixels>
+          <!--<AtlasTexPath>DMTR/MealAtlasCursed</AtlasTexPath>-->
+          <dimensionsMapping>
+          <!-- White rice -->
+            <li>
+              <key>
+                <li>RawRice</li>
+              </key>
+              <value>3</value>
+            </li>
+
+            <!-- French fries and potato puree -->
+            <li>
+              <key>
+                <li>RawPotatoes</li>
+              </key>
+              <value>3</value>
+            </li>
+
+            <!-- Bowl of corn kernels -->
+            <li>
+              <key>
+                <li>RawCorn</li>
+              </key>
+              <value>2</value>
+            </li>
+
+            <!-- Fillets, georgian bbq, sausages and chicken wings -->
+            <li>
+              <key>
+                <li>DMTR_FillWithAllMeatDefs</li>
+              </key>
+              <value>7</value>
+            </li>
+
+            <!-- Yoghurt -->
+            <li>
+              <key>
+                <li>Milk</li>
+              </key>
+              <value>2</value>
+            </li>
+
+            <!-- Hard boiled eggs -->
+            <li>
+              <key>
+                <li>DMTR_FillWithAllEggDefs</li>
+              </key>
+              <value>3</value>
+            </li>
+
+            <!-- Hot cocoa -->
+            <li>
+              <key>
+                <li>Chocolate</li>
+              </key>
+              <value>2</value>
+            </li>
+
+            <!-- Jam and honey -->
+            <li>
+              <key>
+                <li>InsectJelly</li>
+              </key>
+              <value>3</value>
+            </li>
+
+            <!-- Scorpion kabobs -->
+            <li>
+              <key>
+                <li>DMTR_FillWithAllInsectMeatDefs</li>
+              </key>
+              <value>1</value>
+            </li>
+
+            <!-- Fried mushrooms -->
+            <li>
+              <key>
+                <li>RawFungus</li>
+              </key>
+              <value>1</value>
+            </li>
+
+            <!-- Bowl of berries -->
+            <li>
+              <key>
+                <li>RawBerries</li>
+              </key>
+              <value>1</value>
+            </li>
+
+          </dimensionsMapping>
+        </li>
+      </modExtensions>
+    </value>
+  </Operation>
+
+</Patch>
