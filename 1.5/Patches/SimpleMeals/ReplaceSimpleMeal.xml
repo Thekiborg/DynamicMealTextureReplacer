@@ -64,60 +64,60 @@
             </li>
 
             <!-- Yoghurt -->
-            <li>
+            <!--<li>
               <key>
                 <li>Milk</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Hard boiled eggs -->
-            <li>
+            <!--<li>
               <key>
                 <li>DMTR_FillWithAllEggDefs</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Hot cocoa -->
-            <li>
+            <!--<li>
               <key>
                 <li>Chocolate</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Jam and honey -->
-            <li>
+            <!--<li>
               <key>
                 <li>InsectJelly</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Scorpion kabobs -->
-            <li>
+            <!--<li>
               <key>
                 <li>DMTR_FillWithAllInsectMeatDefs</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Fried mushrooms -->
-            <li>
+            <!--<li>
               <key>
                 <li>RawFungus</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
             <!-- Bowl of berries -->
-            <li>
+            <!--<li>
               <key>
                 <li>RawBerries</li>
               </key>
               <value>1</value>
-            </li>
+            </li>-->
 
           </dimensionsMapping>
         </li>

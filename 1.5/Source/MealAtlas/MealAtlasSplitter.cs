@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Text;
 
 namespace DynamicMealTextureReplacer
 {
@@ -39,14 +38,14 @@ namespace DynamicMealTextureReplacer
 			modExtension.UVCoordsForPrinting = new Vector2[totalRows][][];
 			modExtension.MeshesForDrawing = new Mesh[totalRows][];
 
-			for (int rowNum = 0; rowNum < totalRows; rowNum++)
+			for (int rowNum = totalRows - 1; rowNum >= 0; rowNum--)
 			{
-				int texturesPerRow = dimensionsMapping[totalRows - 1 - rowNum];
+				int texturesPerRow = dimensionsMapping[rowNum];
 				// Sets the amount of textures per row from the last one in the list to the first one.
 				// Goes opposite to the loop to match the top most item in the XML list to the top most row in the texture/array
 
-				modExtension.UVCoordsForPrinting[totalRows - 1 - rowNum] = new Vector2[texturesPerRow][];
-				modExtension.MeshesForDrawing[totalRows - 1 - rowNum] = new Mesh[texturesPerRow];
+				modExtension.UVCoordsForPrinting[rowNum] = new Vector2[texturesPerRow][];
+				modExtension.MeshesForDrawing[rowNum] = new Mesh[texturesPerRow];
 
 				for (int colNum = 0; colNum < texturesPerRow; colNum++)
 				{
@@ -61,12 +60,12 @@ namespace DynamicMealTextureReplacer
 					Printer_Plane.GetUVs(singleTextureRect, out var uv1, out var uv2, out var uv3, out var uv4, false);
 
 					// Used in Print()
-					modExtension.UVCoordsForPrinting[totalRows - 1 - rowNum][colNum] = [uv1, uv2, uv3, uv4];
+					modExtension.UVCoordsForPrinting[rowNum][colNum] = [uv1, uv2, uv3, uv4];
 
 					// Used in Draw()
 					Mesh singleTextureMesh = MeshMakerPlanes.NewPlaneMesh(1f);
 					singleTextureMesh.uv = [uv1, uv2, uv3, uv4];
-					modExtension.MeshesForDrawing[totalRows - 1 - rowNum][colNum] = singleTextureMesh;
+					modExtension.MeshesForDrawing[rowNum][colNum] = singleTextureMesh;
 				}
 			}
 			
@@ -77,35 +76,7 @@ namespace DynamicMealTextureReplacer
 			if (modExtension.MeshesForDrawing.NullOrEmpty())
 			{
 				Log.Error($"Could not extract Meshes for meal {thingDef}, this should never happen.");
-			}/*
-			else
-			{
-				for (int Y = 0; Y < extractedTextures.Length; Y++)
-				{
-					var ingredientsFilter = modExtension.dimensionsMapping.ElementAt(extractedTextures.Length - 1 - Y).Key;
-					var texturesPerRow = extractedTextures[Y].Length;
-
-					StringBuilder stringBuilder = new();
-
-					stringBuilder.Append($"New row at index {Y} with filter {{ ");
-
-					foreach (var ingredient in ingredientsFilter)
-					{
-						stringBuilder.Append($"{ingredient} ");
-					}
-					stringBuilder.AppendLine($"}} with {texturesPerRow} variants:");
-					stringBuilder.AppendLine();
-
-					for (int X = 0; X < texturesPerRow; X++)
-					{
-						Material mat = extractedTextures[Y][X];
-						stringBuilder.AppendLine($"■ Texture at ({Y},{X}) with name {mat.name} and offset {mat.mainTextureOffset}");
-					}
-
-					Log.Message(stringBuilder);
-				}
 			}
-			*/
 		}
 
 
@@ -121,7 +92,7 @@ namespace DynamicMealTextureReplacer
 
 		private static float CalculateYCoordinate(int Y)
 		{
-			return Y * YSize + (YPadding * (Y * 2 + 1));
+			return heightPixels - YSize - (Y * YSize + (YPadding * (Y * 2 + 1)));
 		}
 	}
 }
