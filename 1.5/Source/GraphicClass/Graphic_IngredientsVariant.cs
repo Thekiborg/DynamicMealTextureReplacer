@@ -67,7 +67,6 @@
 		private static int GetRandomTextureOnRow(Thing thing, int row, ModExtension_DynamicMealTextureReplacer modExtension)
 		{
 			int randomRangeMax = modExtension.UVCoordsForPrinting[row].Length;
-			Log.Message("row index: " + row + "col number: " + randomRangeMax);
 			int seed = thing.thingIDNumber; //% modExtension.TextureVariants[row].Length;
 			return Rand.RangeSeeded(randomRangeMin, randomRangeMax, seed);
 		}

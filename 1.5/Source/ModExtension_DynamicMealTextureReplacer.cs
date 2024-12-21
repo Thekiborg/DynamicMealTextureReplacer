@@ -6,7 +6,7 @@
 		internal Vector2[][][] UVCoordsForPrinting;
 		internal Mesh[][] MeshesForDrawing;
 
-		public Dictionary<List<ThingDef>, int> dimensionsMapping;
+		public Dictionary<ThingFilter, int> dimensionsMapping;
 		public int maxCheckedIngredients = 1;
 		public float heightPixels;
 		public float widthPixels;

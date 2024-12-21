@@ -9,11 +9,11 @@ namespace DynamicMealTextureReplacer
 			int atlasYIndex = 0;
 			List<ThingDef> ingredientsToCheck = compIngredients.ingredients.Take(modExtension.maxCheckedIngredients).ToList();
 
-			foreach (List<ThingDef> filterOnRow in modExtension.dimensionsMapping.Keys)
+			foreach (ThingFilter filter in modExtension.dimensionsMapping.Keys)
 			{
 				// The top most ingredient matches the top most row in the array, matching the atlas and the XML visually.
 
-				if (MatchesFilter(filterOnRow, ingredientsToCheck))
+				if (MatchesFilter(filter, ingredientsToCheck))
 				{
 					return atlasYIndex;
 				}
@@ -23,11 +23,11 @@ namespace DynamicMealTextureReplacer
 			return -1;
 		}
 
-		private static bool MatchesFilter(List<ThingDef> ingredientFilter, List<ThingDef> ingredientsInMeal)
+		private static bool MatchesFilter(ThingFilter filter, List<ThingDef> ingredientsInMeal)
 		{
-			for (int i = 0; i < ingredientFilter.Count; i++)
+			foreach (ThingDef ingredient in ingredientsInMeal)
 			{
-				if (!ingredientsInMeal.Contains(ingredientFilter[i]))
+				if (!filter.Allows(ingredient))
 				{
 					return false;
 				}

@@ -8,7 +8,7 @@
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
         <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
-        <texPath>DMTR/MealAtlasCursed</texPath>
+        <texPath>DMTR/FineMealAtlas/FineCarn</texPath>
         <attachments>
           <li>
             <!-- In the case it can't do that, it'll use the default graphic class-->
@@ -27,46 +27,62 @@
       <uiIconPath>Things/Item/Meal/FineMeat/FineMeat_a</uiIconPath>
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
-          <widthPixels>432</widthPixels>
-          <heightPixels>432</heightPixels>
-          <!--<AtlasTexPath>DMTR/MealAtlasCursed</AtlasTexPath>-->
+          <widthPixels>576</widthPixels>
+          <heightPixels>720</heightPixels>
+          <maxCheckedIngredients>2</maxCheckedIngredients>
           <dimensionsMapping>
-            <!-- Fillets, georgian bbq, sausages and chicken wings -->
+
             <li>
               <key>
-                <li>DMTR_FillWithAllMeatDefs</li>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
               </key>
-              <value>7</value>
+              <value>4</value>
             </li>
 
-            <!-- Yoghurt -->
+
             <li>
               <key>
-                <li>Milk</li>
+                <thingDefs>
+                  <li>Milk</li>
+                </thingDefs>
               </key>
               <value>2</value>
             </li>
 
-            <!-- Hard boiled eggs -->
+
             <li>
               <key>
-                <li>DMTR_FillWithAllEggDefs</li>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
               </key>
               <value>3</value>
             </li>
 
-            <!-- Jam and honey -->
+
             <li>
               <key>
-                <li>InsectJelly</li>
+                <thingDefs>
+                  <li>InsectJelly</li>
+                </thingDefs>
               </key>
               <value>3</value>
             </li>
 
-            <!-- Scorpion kabobs -->
+
             <li>
               <key>
-                <li>DMTR_FillWithAllInsectMeatDefs</li>
+                <thingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </thingDefs>
               </key>
               <value>1</value>
             </li>

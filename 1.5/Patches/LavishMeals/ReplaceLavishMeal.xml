@@ -8,7 +8,7 @@
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
         <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
-        <texPath>DMTR/MealAtlasCursed</texPath>
+        <texPath>DMTR/LavishMealAtlas/Lavish</texPath>
         <attachments>
           <li>
             <!-- In the case it can't do that, it'll use the default graphic class-->
@@ -27,94 +27,192 @@
       <uiIconPath>Things/Item/Meal/Lavish/Lavish_a</uiIconPath>
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
-          <widthPixels>432</widthPixels>
-          <heightPixels>432</heightPixels>
-          <!--<AtlasTexPath>DMTR/MealAtlasCursed</AtlasTexPath>-->
+          <widthPixels>288</widthPixels>
+          <heightPixels>2304</heightPixels>
+          <maxCheckedIngredients>3</maxCheckedIngredients>
           <dimensionsMapping>
-          <!-- White rice -->
-            <li>
-              <key>
-                <li>RawRice</li>
-              </key>
-              <value>3</value>
-            </li>
 
-            <!-- French fries and potato puree -->
             <li>
               <key>
-                <li>RawPotatoes</li>
-              </key>
-              <value>3</value>
-            </li>
-
-            <!-- Bowl of corn kernels -->
-            <li>
-              <key>
-                <li>RawCorn</li>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
               </key>
               <value>2</value>
             </li>
 
-            <!-- Fillets, georgian bbq, sausages and chicken wings -->
-            <li>
-              <key>
-                <li>DMTR_FillWithAllMeatDefs</li>
-              </key>
-              <value>7</value>
-            </li>
 
-            <!-- Yoghurt -->
             <li>
               <key>
-                <li>Milk</li>
-              </key>
-              <value>2</value>
-            </li>
-
-            <!-- Hard boiled eggs -->
-            <li>
-              <key>
-                <li>DMTR_FillWithAllEggDefs</li>
-              </key>
-              <value>3</value>
-            </li>
-
-            <!-- Hot cocoa -->
-            <li>
-              <key>
-                <li>Chocolate</li>
-              </key>
-              <value>2</value>
-            </li>
-
-            <!-- Jam and honey -->
-            <li>
-              <key>
-                <li>InsectJelly</li>
-              </key>
-              <value>3</value>
-            </li>
-
-            <!-- Scorpion kabobs -->
-            <li>
-              <key>
-                <li>DMTR_FillWithAllInsectMeatDefs</li>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
               </key>
               <value>1</value>
             </li>
 
-            <!-- Fried mushrooms -->
+
             <li>
               <key>
-                <li>RawFungus</li>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                  <li>Milk</li>
+                </thingDefs>
               </key>
               <value>1</value>
             </li>
 
-            <!-- Bowl of berries -->
+
             <li>
               <key>
-                <li>RawBerries</li>
+                <thingDefs>
+                  <li>RawCorn</li>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawCorn</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>InsectJelly</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawFungus</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawBerries</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawAgave</li>
+                </thingDefs>
               </key>
               <value>1</value>
             </li>

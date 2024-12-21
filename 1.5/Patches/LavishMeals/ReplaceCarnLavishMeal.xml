@@ -3,16 +3,16 @@
 
   <!-- Replaces the meal's graphicClass -->
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="MealFine_Veg"]/graphicData</xpath>
+    <xpath>Defs/ThingDef[defName="MealLavish_Meat"]/graphicData</xpath>
     <value>
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
         <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
-        <texPath>DMTR/FineMealAtlas/FineVeg</texPath>
+        <texPath>DMTR/LavishMealAtlas/LavishCarn</texPath>
         <attachments>
           <li>
             <!-- In the case it can't do that, it'll use the default graphic class-->
-            <texPath>Things/Item/Meal/FineVeg</texPath>
+            <texPath>Things/Item/Meal/Fine</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
           </li>
         </attachments>
@@ -22,43 +22,42 @@
 
   <!-- Atlas settings and mapping-->
   <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="MealFine_Veg"]</xpath>
+    <xpath>Defs/ThingDef[defName="MealLavish_Meat"]</xpath>
     <value>
-      <uiIconPath>Things/Item/Meal/FineVeg/FineVeg_a</uiIconPath>
+      <uiIconPath>Things/Item/Meal/LavishMeat/LavishMeat_a</uiIconPath>
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
-          <widthPixels>432</widthPixels>
-          <heightPixels>1152</heightPixels>
-          <maxCheckedIngredients>2</maxCheckedIngredients>
+          <widthPixels>576</widthPixels>
+          <heightPixels>864</heightPixels>
+          <maxCheckedIngredients>3</maxCheckedIngredients>
           <dimensionsMapping>
-
             <li>
               <key>
                 <thingDefs>
-                  <li>RawRice</li>
+                  <li>InsectJelly</li>
                 </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
               </key>
-              <value>3</value>
+              <value>4</value>
             </li>
 
-
             <li>
               <key>
-                <thingDefs>
-                  <li>RawPotatoes</li>
-                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
               </key>
-              <value>3</value>
-            </li>
-
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawCorn</li>
-                </thingDefs>
-              </key>
-              <value>1</value>
+              <value>4</value>
             </li>
 
 
@@ -89,16 +88,6 @@
                   <li>InsectJelly</li>
                 </thingDefs>
               </key>
-              <value>3</value>
-            </li>
-
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawFungus</li>
-                </thingDefs>
-              </key>
               <value>1</value>
             </li>
 
@@ -106,11 +95,11 @@
             <li>
               <key>
                 <thingDefs>
-                  <li>RawBerries</li>
-                  <li>RawAgave</li>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
                 </thingDefs>
               </key>
-              <value>2</value>
+              <value>1</value>
             </li>
 
           </dimensionsMapping>
