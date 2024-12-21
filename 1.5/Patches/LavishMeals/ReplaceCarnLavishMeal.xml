@@ -28,24 +28,9 @@
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
           <widthPixels>576</widthPixels>
-          <heightPixels>864</heightPixels>
+          <heightPixels>720</heightPixels>
           <maxCheckedIngredients>3</maxCheckedIngredients>
           <dimensionsMapping>
-            <li>
-              <key>
-                <thingDefs>
-                  <li>InsectJelly</li>
-                </thingDefs>
-                <categories>
-                  <li>MeatRaw</li>
-                </categories>
-                <disallowedThingDefs>
-                  <li>Meat_Megaspider</li>
-                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
-                </disallowedThingDefs>
-              </key>
-              <value>4</value>
-            </li>
 
             <li>
               <key>
