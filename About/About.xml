@@ -4,13 +4,18 @@
 
 	<author>Thekiborg</author>
 
-	<packageId>Thekiborg.DMTR</packageId> <!-- a unique identifier for the mod. Special characters are not allowed, at least one dot is required. This is what gets saved in a player's mod list, and having two identical IDs leads to the mod manager becoming incapable of loading the correct mod. The game internally stores these IDs using lower case characters only -->
+	<packageId>Thekiborg.DMTR</packageId>
 
 	<description>Dynamically changes the texture of meals based on the ingredients!</description>
 
 	<supportedVersions>
-		<li>1.5</li> <!-- Supported versions. Place rimworld versions in separate li nodes here -->
+		<li>1.5</li>
 	</supportedVersions>
 
 	<!-- More information is available here: https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml -->
+
+	<loadAfter>
+  		<li>erdelf.HumanoidAlienRaces</li>
+	</loadAfter>
+	
 </ModMetaData>

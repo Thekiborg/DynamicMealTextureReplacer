@@ -3,7 +3,9 @@
 	public class Graphic_IngredientsVariant : Graphic_Single
 	{
 		private const int randomRangeMin = 0;
+		private static Texture2D mealBaseTex = ContentFinder<Texture2D>.Get("Things/Item/Meal/FineMeat/FineMeat_a");
 		private readonly Dictionary<Thing, (ModExtension_DynamicMealTextureReplacer ModExtension, CompIngredients CompIngredients)> modExtensionCompCache = [];
+
 
 		public override void Print(SectionLayer layer, Thing thing, float extraRotation)
 		{
@@ -29,6 +31,7 @@
 			}
 
 		}
+
 
 		public override void DrawWorker(Vector3 loc, Rot4 rot, ThingDef thingDef, Thing thing, float extraRotation)
 		{
@@ -64,12 +67,20 @@
 
 		}
 
+
+		public override Material MatAt(Rot4 rot, Thing thing = null)
+		{
+			return ;
+		}
+
+
 		private static int GetRandomTextureOnRow(Thing thing, int row, ModExtension_DynamicMealTextureReplacer modExtension)
 		{
 			int randomRangeMax = modExtension.UVCoordsForPrinting[row].Length;
 			int seed = thing.thingIDNumber; //% modExtension.TextureVariants[row].Length;
 			return Rand.RangeSeeded(randomRangeMin, randomRangeMax, seed);
 		}
+
 
 		private void CacheCompAndModExtension(Thing thing)
 		{
