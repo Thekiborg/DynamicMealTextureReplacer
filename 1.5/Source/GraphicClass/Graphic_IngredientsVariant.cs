@@ -3,7 +3,6 @@
 	public class Graphic_IngredientsVariant : Graphic_Single
 	{
 		private const int randomRangeMin = 0;
-		private static Texture2D mealBaseTex = ContentFinder<Texture2D>.Get("Things/Item/Meal/FineMeat/FineMeat_a");
 		private readonly Dictionary<Thing, (ModExtension_DynamicMealTextureReplacer ModExtension, CompIngredients CompIngredients)> modExtensionCompCache = [];
 
 
@@ -70,7 +69,7 @@
 
 		public override Material MatAt(Rot4 rot, Thing thing = null)
 		{
-			return ;
+			return data.attachments[0].Graphic.MatSingle;
 		}
 
 
