@@ -3,7 +3,7 @@
 
   <!-- Replaces the meal's graphicClass -->
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="MealSimple"]/graphicData</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealSimple"]/graphicData</xpath>
     <value>
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
@@ -22,7 +22,7 @@
 
   <!-- Atlas settings and mapping-->
   <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="MealSimple"]</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealSimple"]</xpath>
     <value>
       <uiIconPath>Things/Item/Meal/Simple/Simple_a</uiIconPath>
       <modExtensions>

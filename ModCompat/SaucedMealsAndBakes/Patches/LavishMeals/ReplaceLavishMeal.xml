@@ -3,16 +3,16 @@
 
   <!-- Replaces the meal's graphicClass -->
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="MealSimple"]/graphicData</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealLavish"]/graphicData</xpath>
     <value>
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
         <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
-        <texPath>DMTR/SimpleMealAtlas/Simple</texPath>
+        <texPath>DMTR/LavishMealAtlas/Lavish</texPath>
         <attachments>
           <li>
             <!-- In the case it can't do that, it'll use the default graphic class-->
-            <texPath>Things/Item/Meal/Simple</texPath>
+            <texPath>Things/Item/Meal/Fine</texPath>
             <graphicClass>Graphic_MealVariants</graphicClass>
           </li>
         </attachments>
@@ -22,22 +22,95 @@
 
   <!-- Atlas settings and mapping-->
   <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="MealSimple"]</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealLavish"]</xpath>
     <value>
-      <uiIconPath>Things/Item/Meal/Simple/Simple_a</uiIconPath>
+      <uiIconPath>Things/Item/Meal/Lavish/Lavish_a</uiIconPath>
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
-          <widthPixels>432</widthPixels>
-          <heightPixels>1440</heightPixels>
+          <widthPixels>288</widthPixels>
+          <heightPixels>2304</heightPixels>
+          <maxCheckedIngredients>3</maxCheckedIngredients>
           <dimensionsMapping>
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawCorn</li>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
             <li>
               <key>
                 <thingDefs>
                   <li>RawRice</li>
                 </thingDefs>
               </key>
-              <value>1</value>
+              <value>2</value>
             </li>
+
 
             <li>
               <key>
@@ -48,6 +121,7 @@
               <value>2</value>
             </li>
 
+
             <li>
               <key>
                 <thingDefs>
@@ -56,6 +130,7 @@
               </key>
               <value>1</value>
             </li>
+
 
             <li>
               <key>
@@ -67,8 +142,9 @@
                   <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
                 </disallowedThingDefs>
               </key>
-              <value>4</value>
+              <value>2</value>
             </li>
+
 
             <li>
               <key>
@@ -76,8 +152,9 @@
                   <li>Milk</li>
                 </thingDefs>
               </key>
-              <value>1</value>
+              <value>2</value>
             </li>
+
 
             <li>
               <key>
@@ -86,8 +163,9 @@
                   <li>EggsFertilized</li>
                 </categories>
               </key>
-              <value>1</value>
+              <value>2</value>
             </li>
+
 
             <li>
               <key>
@@ -95,8 +173,9 @@
                   <li>InsectJelly</li>
                 </thingDefs>
               </key>
-              <value>2</value>
+              <value>1</value>
             </li>
+
 
             <li>
               <key>
@@ -108,6 +187,7 @@
               <value>1</value>
             </li>
 
+
             <li>
               <key>
                 <thingDefs>
@@ -117,14 +197,24 @@
               <value>1</value>
             </li>
 
+
             <li>
               <key>
                 <thingDefs>
                   <li>RawBerries</li>
-                  <li>RawAgave</li>
                 </thingDefs>
               </key>
               <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawAgave</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
             </li>
 
           </dimensionsMapping>

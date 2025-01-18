@@ -3,17 +3,17 @@
 
   <!-- Replaces the meal's graphicClass -->
   <Operation Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="MealSimple"]/graphicData</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealFineMeat"]/graphicData</xpath>
     <value>
       <graphicData>
         <!-- Uses the atlas to dynamically change the texture -->
         <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
-        <texPath>DMTR/SimpleMealAtlas/Simple</texPath>
+        <texPath>DMTR/FineMealAtlas/FineCarn</texPath>
         <attachments>
           <li>
             <!-- In the case it can't do that, it'll use the default graphic class-->
-            <texPath>Things/Item/Meal/Simple</texPath>
-            <graphicClass>Graphic_MealVariants</graphicClass>
+            <texPath>Things/Item/Meal/Fine</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
           </li>
         </attachments>
       </graphicData>
@@ -22,40 +22,15 @@
 
   <!-- Atlas settings and mapping-->
   <Operation Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="MealSimple"]</xpath>
+    <xpath>Defs/ThingDef[defName="SM_SaucedMealFineMeat"]</xpath>
     <value>
-      <uiIconPath>Things/Item/Meal/Simple/Simple_a</uiIconPath>
+      <uiIconPath>Things/Item/Meal/FineMeat/FineMeat_a</uiIconPath>
       <modExtensions>
         <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
-          <widthPixels>432</widthPixels>
-          <heightPixels>1440</heightPixels>
+          <widthPixels>576</widthPixels>
+          <heightPixels>720</heightPixels>
+          <maxCheckedIngredients>2</maxCheckedIngredients>
           <dimensionsMapping>
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawRice</li>
-                </thingDefs>
-              </key>
-              <value>1</value>
-            </li>
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawPotatoes</li>
-                </thingDefs>
-              </key>
-              <value>2</value>
-            </li>
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawCorn</li>
-                </thingDefs>
-              </key>
-              <value>1</value>
-            </li>
 
             <li>
               <key>
@@ -70,14 +45,16 @@
               <value>4</value>
             </li>
 
+
             <li>
               <key>
                 <thingDefs>
                   <li>Milk</li>
                 </thingDefs>
               </key>
-              <value>1</value>
+              <value>2</value>
             </li>
+
 
             <li>
               <key>
@@ -86,8 +63,9 @@
                   <li>EggsFertilized</li>
                 </categories>
               </key>
-              <value>1</value>
+              <value>3</value>
             </li>
+
 
             <li>
               <key>
@@ -95,8 +73,9 @@
                   <li>InsectJelly</li>
                 </thingDefs>
               </key>
-              <value>2</value>
+              <value>3</value>
             </li>
+
 
             <li>
               <key>
@@ -106,25 +85,6 @@
                 </thingDefs>
               </key>
               <value>1</value>
-            </li>
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawFungus</li>
-                </thingDefs>
-              </key>
-              <value>1</value>
-            </li>
-
-            <li>
-              <key>
-                <thingDefs>
-                  <li>RawBerries</li>
-                  <li>RawAgave</li>
-                </thingDefs>
-              </key>
-              <value>2</value>
             </li>
 
           </dimensionsMapping>
