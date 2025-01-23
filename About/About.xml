@@ -15,7 +15,7 @@
 	<!-- More information is available here: https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml -->
 
 	<loadAfter>
-  		<li>erdelf.HumanoidAlienRaces</li>
+  		<li>vanillaexpanded.vtexe</li>
 	</loadAfter>
 	
 </ModMetaData>

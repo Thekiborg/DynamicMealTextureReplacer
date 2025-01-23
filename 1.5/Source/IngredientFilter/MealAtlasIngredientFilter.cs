@@ -19,7 +19,11 @@ namespace DynamicMealTextureReplacer
 				}
 				atlasYIndex++;
 			}
-			Log.Warning($"Could not match the ingredient filter on {compIngredients.parent}, returning fallback.");
+
+			if (DebugSettings.godMode)
+			{
+				Log.Warning($"Could not match the ingredient filter on {compIngredients.parent}, returning fallback.");
+			}
 			return -1;
 		}
 
