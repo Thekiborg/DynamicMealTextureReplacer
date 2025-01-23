@@ -122,6 +122,16 @@
                 <thingDefs>
                   <li>RawBerries</li>
                   <li>RawAgave</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawApple</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawPeach</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawCherry</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawPlum</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawPrunes</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawPear</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawPricklyPear</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_Bearberry</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawBanana</li>
+                  <li MayRequire="vanillaexpanded.vtexe">VCE_RawOrange</li>
                 </thingDefs>
               </key>
               <value>2</value>
