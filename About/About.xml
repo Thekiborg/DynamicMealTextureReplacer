@@ -15,7 +15,7 @@
 	<!-- More information is available here: https://rimworldwiki.com/wiki/Modding_Tutorials/About.xml -->
 
 	<loadAfter>
-  		<li>vanillaexpanded.vtexe</li>
+  		<li>vanillaexpanded.vplantse</li>
 	</loadAfter>
 	
 </ModMetaData>
