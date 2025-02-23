@@ -16,6 +16,7 @@
 
 	<loadAfter>
   		<li>vanillaexpanded.vplantse</li>
+		<li>vanillaexpanded.vtexe</li>
 	</loadAfter>
 	
 </ModMetaData>
