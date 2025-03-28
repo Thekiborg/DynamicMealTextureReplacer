@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <RecipeDef>
+        <defName>DMTR_MakeMilkshake</defName>
+        <label>make milkshake</label>
+        <description>Make a milkshake, a delightful and healthy treat.</description>
+        <jobString>Making milkshake.</jobString>
+        <workAmount>300</workAmount>
+        <workSpeedStat>CookSpeed</workSpeedStat>
+        <workSkill>Cooking</workSkill>
+        <effectWorking>Cook</effectWorking>
+        <soundWorking>Recipe_CookMeal</soundWorking>
+        <allowMixingIngredients>true</allowMixingIngredients>
+        <targetCountAdjustment>1</targetCountAdjustment>
+        <recipeUsers>
+            <li>FueledStove</li>
+            <li>ElectricStove</li>
+		</recipeUsers>
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>Ambrosia</li>
+                <li>Chocolate</li>
+                <li>RawBerries</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Milk</li>
+                    </thingDefs>
+                </filter>
+                <count>2</count>
+            </li>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>RawBerries</li>
+                        <li>Ambrosia</li>
+                        <li>Chocolate</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        <products>
+            <DMTR_Milkshake>1</DMTR_Milkshake>
+        </products>
+        <skillRequirements>
+            <Cooking>4</Cooking>
+        </skillRequirements>
+    </RecipeDef>
+
+</Defs>

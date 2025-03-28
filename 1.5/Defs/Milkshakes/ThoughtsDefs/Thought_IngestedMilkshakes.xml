@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThoughtDef>
+        <defName>DMTR_Thought_DrankMilkshake</defName>
+        <durationDays>0.75</durationDays>
+        <stages>
+            <li>
+                <label>drank milkshake</label>
+                <description>Mmm. That was delicious. I should have it again later!</description>
+                <baseMoodEffect>2</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+</Defs>

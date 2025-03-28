@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingCategoryDef>
+        <defName>DMTR_Milkshakes</defName>
+        <label>milkshakes</label>
+        <parent>Foods</parent>
+        <iconPath>DMTR/FallbackMilkshakes/Milkshake_c</iconPath>
+        <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
+
+</Defs>

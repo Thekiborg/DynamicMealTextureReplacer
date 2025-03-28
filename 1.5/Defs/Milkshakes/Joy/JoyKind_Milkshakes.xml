@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <JoyKindDef>
+        <defName>DMTR_DrankMilkshake</defName>
+        <label>milkshake consumption</label>
+    </JoyKindDef>
+
+</Defs>
