@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Replaces the meal's graphicClass -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MealFine"]/graphicData</xpath>
+    <value>
+      <graphicData>
+        <!-- Uses the atlas to dynamically change the texture -->
+        <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+        <texPath>DMTR/FineMealAtlas/Fine</texPath>
+        <attachments>
+          <li>
+            <!-- In the case it can't do that, it'll use the default graphic class-->
+            <texPath>Things/Item/Meal/Fine</texPath>
+            <graphicClass>Graphic_MealVariants</graphicClass>
+          </li>
+        </attachments>
+      </graphicData>
+    </value>
+  </Operation>
+
+  <!-- Atlas settings and mapping-->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MealFine"]</xpath>
+    <value>
+      <uiIconPath>Things/Item/Meal/Fine/Fine_a</uiIconPath>
+      <modExtensions>
+        <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+          <widthPixels>288</widthPixels>
+          <heightPixels>2160</heightPixels>
+          <maxCheckedIngredients>2</maxCheckedIngredients>
+          <dimensionsMapping>
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                </thingDefs>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawCorn</li>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawRice</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawPotatoes</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawCorn</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>InsectJelly</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawFungus</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>RawBerries</li>
+                  <li>RawAgave</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawApple</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawPeach</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawCherry</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawPlum</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawPrunes</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawPear</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawPricklyPear</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_Bearberry</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawBanana</li>
+                  <li MayRequire="vanillaexpanded.vplantse">VCE_RawOrange</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+          </dimensionsMapping>
+        </li>
+      </modExtensions>
+    </value>
+  </Operation>
+
+</Patch>

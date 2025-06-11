@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+  <!-- Replaces the meal's graphicClass -->
+  <Operation Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="MealLavish_Meat"]/graphicData</xpath>
+    <value>
+      <graphicData>
+        <!-- Uses the atlas to dynamically change the texture -->
+        <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+        <texPath>DMTR/LavishMealAtlas/LavishCarn</texPath>
+        <attachments>
+          <li>
+            <!-- In the case it can't do that, it'll use the default graphic class-->
+            <texPath>Things/Item/Meal/Fine</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+          </li>
+        </attachments>
+      </graphicData>
+    </value>
+  </Operation>
+
+  <!-- Atlas settings and mapping-->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/ThingDef[defName="MealLavish_Meat"]</xpath>
+    <value>
+      <uiIconPath>Things/Item/Meal/LavishMeat/LavishMeat_a</uiIconPath>
+      <modExtensions>
+        <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+          <widthPixels>576</widthPixels>
+          <heightPixels>720</heightPixels>
+          <maxCheckedIngredients>3</maxCheckedIngredients>
+          <dimensionsMapping>
+
+            <li>
+              <key>
+                <categories>
+                  <li>MeatRaw</li>
+                </categories>
+                <disallowedThingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </disallowedThingDefs>
+              </key>
+              <value>4</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Milk</li>
+                </thingDefs>
+              </key>
+              <value>2</value>
+            </li>
+
+
+            <li>
+              <key>
+                <categories>
+                  <li>EggsUnfertilized</li>
+                  <li>EggsFertilized</li>
+                </categories>
+              </key>
+              <value>3</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>InsectJelly</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+
+            <li>
+              <key>
+                <thingDefs>
+                  <li>Meat_Megaspider</li>
+                  <li MayRequire="Ludeon.RimWorld.Anomaly">Meat_Twisted</li>
+                </thingDefs>
+              </key>
+              <value>1</value>
+            </li>
+
+          </dimensionsMapping>
+        </li>
+      </modExtensions>
+    </value>
+  </Operation>
+
+</Patch>

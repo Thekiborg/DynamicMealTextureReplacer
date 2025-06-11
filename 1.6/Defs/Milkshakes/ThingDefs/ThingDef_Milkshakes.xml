@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>DMTR_Milkshake</defName>
+        <label>milkshake</label>
+        <description>A delightful shaken drink. Needs little preparation and fulfills the need for recreation, but it is not very nutritious and deteriorate quickly if not preserved.</description>
+        <graphicData>
+            <graphicClass>DynamicMealTextureReplacer.Graphic_IngredientsVariant</graphicClass>
+            <texPath>DMTR/MilkshakeAtlas/Milkshake</texPath>
+            <attachments>
+                <li>
+                    <texPath>DMTR/FallbackMilkshakes</texPath>
+                    <graphicClass>Graphic_StackCount</graphicClass>
+                </li>
+            </attachments>
+        </graphicData>
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        <socialPropernessMatters>true</socialPropernessMatters>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>11</MarketValue> <!-- Total Value = Raw Ingredients Used x1.5 Rounded Down-->
+            <Mass>0.11</Mass>
+            <Flammability>1.0</Flammability>
+            <DeteriorationRate>8</DeteriorationRate> <!-- Reference: Rough Mid-Point Basic Ingredient vs Special Ingredient(s) -->
+            <Nutrition>0.225</Nutrition> <!-- Total Nutrition = Raw Nutrition Used x1.5-->
+        </statBases>
+        <tickerType>Rare</tickerType>
+        <thingCategories>
+            <li>DMTR_Milkshakes</li>
+        </thingCategories>
+        <ingestible>
+            <preferability>DesperateOnly</preferability>
+            <tasteThought>DMTR_Thought_DrankMilkshake</tasteThought>
+            <foodType>Processed</foodType>
+            <joy>0.20</joy>
+            <joyKind>DMTR_DrankMilkshake</joyKind>
+            <maxNumToIngestAtOnce>1</maxNumToIngestAtOnce>
+            <ingestSound>Meal_Eat</ingestSound>
+        </ingestible>
+        <tradeability>Buyable</tradeability>
+        <comps>
+            <li Class="CompProperties_Rottable">
+                <daysToRotStart>3</daysToRotStart>
+                <rotDestroys>true</rotDestroys>
+            </li>
+            <li Class="CompProperties_Ingredients">
+                <splitTransferableFoodKind>true</splitTransferableFoodKind>
+            </li>
+        </comps>
+        <modExtensions>
+            <li Class="DynamicMealTextureReplacer.ModExtension_DynamicMealTextureReplacer">
+                <widthPixels>576</widthPixels>
+                <heightPixels>432</heightPixels>
+                <maxCheckedIngredients>2</maxCheckedIngredients>
+                <dimensionsMapping>
+
+                    <li>
+                        <key>
+                            <thingDefs>
+                                <li>Milk</li>
+                                <li>Ambrosia</li>
+                            </thingDefs>
+                        </key>
+                        <value>1</value>
+                    </li>
+
+                    <li>
+                        <key>
+                            <thingDefs>
+                                <li>Milk</li>
+                                <li>Chocolate</li>
+                            </thingDefs>
+                        </key>
+                        <value>1</value>
+                    </li>
+
+
+                    <li>
+                        <key>
+                            <thingDefs>
+                                <li>Milk</li>
+                                <li>RawBerries</li>
+                            </thingDefs>
+                        </key>
+                        <value>4</value>
+                    </li>
+
+                </dimensionsMapping>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+</Defs>
